@@ -90,9 +90,8 @@ async function loadCss(url) {
 // Função para modificar as questões (spoof)
 function spoofQuestion() {
     const phrases = [
-        "🎮💣 Games Destroyer On Top[Discord](https://discord.gg/gamesdest)!",
-        "❓ Made by [@iUnknownBr](https://guns.lol/iunknownbr).",
-        "🏂 Made by [Snow](https://guns.lol/imsnow)"
+        "🎮💣 Loud Games On Top[Discord](https://discord.gg/8xVmMBy9k4)!",
+        "❓ Made by [@richinnersoul].",
     ];
 
     const originalFetch = window.fetch;
@@ -167,7 +166,7 @@ function autoAnswer() {
                     }
                 }
             } else {
-                await delay(1000);
+                await delay(750);
             }
         }
     })();
@@ -195,7 +194,7 @@ async function showSplashScreen() {
         font-size: 30px;
         text-align: center;
     `;
-    splashScreen.innerHTML = '<span style="color:white;">KHAN </span><span style="color:#00ff00;">DESTROYER</span>';
+    splashScreen.innerHTML = '<span style="color:white;">KHAN </span><span style="color:#00ff00;">LOUDETES</span>';
     document.body.appendChild(splashScreen);
     setTimeout(() => splashScreen.style.opacity = '1', 10);
 
@@ -205,32 +204,6 @@ async function showSplashScreen() {
     splashScreen.remove();
 }
 
-// Função para exibir o popup de doação
-function showDonationPopup() {
-    const popup = document.createElement('div');
-    popup.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: #1e1e1e;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px #00ff00;
-        z-index: 10000;
-        text-align: center;
-        color: white;
-        font-family: Arial, sans-serif;
-    `;
-    popup.innerHTML = `
-        <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove(); showDiscordPopup();">×</div>
-        <img src="https://i.imgur.com/t4mfuJU.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
-        <h2 style="color: #00ff00; text-shadow: 0 0 5px #00ff00;">Contribua com o projeto</h2>
-        <p style="font-size: 14px;">Sua ajuda é necessária para manter e atualizar o projeto. Qualquer doação é bem-vinda!</p>
-        <button onclick="window.open('https://pixgg.com/im_snow', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Doar</button>
-    `;
-    document.body.appendChild(popup);
-}
 
 // Função para exibir o popup do Discord
 function showDiscordPopup() {
@@ -251,10 +224,10 @@ function showDiscordPopup() {
     `;
     popup.innerHTML = `
         <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove();">×</div>
-        <img src="https://i.imgur.com/t4mfuJU.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuZmVyE__LLc-UZYbV1TswbtwLS1sqUVMB8A&s" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
         <h2 style="color: #00ff00; text-shadow: 0 0 5px #00ff00;">Entre no nosso servidor</h2>
         <p style="font-size: 14px;">Junte-se à nossa comunidade no Discord para mais atualizações e suporte!</p>
-        <button onclick="window.open('https://discord.gg/gamesdest', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Entrar no servidor</button>
+        <button onclick="window.open('https://discord.gg/8xVmMBy9k4', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Entrar no servidor</button>
     `;
     document.body.appendChild(popup);
 }

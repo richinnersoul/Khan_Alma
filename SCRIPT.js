@@ -73,7 +73,7 @@ class UI {
     });
     _0x3d849d.innerHTML = `
             <style>
-                .khandestroyer-header {
+                .Khanloudetes-header {
                     color: #fff;
                     font-size: 18px;
                     font-weight: bold;
@@ -87,31 +87,31 @@ class UI {
                     justify-content: center;
                     align-items: center;
                 }
-                .khandestroyer-header:after {
+                .Khanloudetes-header:after {
                     content: "▼";
                     font-size: 12px;
                     margin-left: 5px;
                     transition: transform 0.3s ease;
                 }
-                .khandestroyer-header.collapsed:after {
+                .Khanloudetes-header.collapsed:after {
                     transform: rotate(-90deg);
                 }
-                .khandestroyer-content {
+                .Khanloudetes-content {
                     transition: max-height 0.3s ease, opacity 0.3s ease;
                     max-height: 500px;
                     opacity: 1;
                     overflow: hidden;
                 }
-                .khandestroyer-content.collapsed {
+                .Khanloudetes-content.collapsed {
                     max-height: 0;
                     opacity: 0;
                 }
-                .khandestroyer-version {
+                .Khanloudetes-version {
                     color: #666;
                     font-size: 12px;
                     font-weight: normal;
                 }
-                .khandestroyer-opt {
+                .Khanloudetes-opt {
                     display: flex;
                     align-items: center;
                     justify-content: space-between;
@@ -158,7 +158,7 @@ class UI {
                 input:checked + .slider:before {
                     transform: translateX(22px);
                 }
-                .khandestroyer-credit {
+                .Khanloudetes-credit {
                     color: #666;
                     font-size: 11px;
                     text-align: center;
@@ -217,32 +217,32 @@ class UI {
                 }
                 }
             </style>
-            <div class="khandestroyer-header">
-                KhanDestroyer <span class="khandestroyer-version">${APP.ver}</span>
+            <div class="Khanloudetes-header">
+                Khanloudetes <span class="Khanloudetes-version">${APP.ver}</span>
             </div>
-            <div class="khandestroyer-content">
-                <div class="khandestroyer-opt">
+            <div class="Khanloudetes-content">
+                <div class="Khanloudetes-opt">
                     <span>Auto Complete</span>
                     <label class="switch">
                         <input type="checkbox" id="autoCheck">
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div class="khandestroyer-opt">
+                <div class="Khanloudetes-opt">
                     <span>Question Spoof</span>
                     <label class="switch">
                         <input type="checkbox" id="spoofCheck" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div class="khandestroyer-opt">
+                <div class="Khanloudetes-opt">
                     <span>Dark Mode</span>
                     <label class="switch">
                         <input type="checkbox" id="darkModeCheck" checked>
                         <span class="slider"></span>
                     </label>
                 </div>
-                <div class="khandestroyer-opt" id="speedControlContainer" style="display: none;">
+                <div class="Khanloudetes-opt" id="speedControlContainer" style="display: none;">
                     <span>Velocidade</span>
                     <div style="width: 100%; display: flex; align-items: center; padding-left: 10px; box-sizing: border-box;">
                         <div class="speed-slider-container">
@@ -251,7 +251,7 @@ class UI {
                         </div>
                     </div>
                 </div>
-                <div class="khandestroyer-credit">by iUnknownBr</div>
+                <div class="Khanloudetes-credit">by richinnersoul</div>
             </div>
         `;
     document.body.appendChild(_0x3d849d);
@@ -376,8 +376,8 @@ class Core {
   
   static setupMod() {
     const messages = [
-      "🔥 Games Destroyer On Top[Discord](https://discord.gg/gamesdest)!",
-      "🤍 Made by [@iUnknownBr](https://guns.lol/iunknownbr)."
+      "🔥 LOUDEEEE Top[Discord](https://discord.gg/8xVmMBy9k4)!",
+      "🤍 Made by [@richinnersoul](https://discord.gg/8xVmMBy9k4)."
     ];
     
     const originalFetch = window.fetch;
@@ -486,11 +486,11 @@ async function initApp() {
     await Core.loadExternalLibraries();
     UI.init();
     Core.init();
-    console.log(`KhanDestroyer v${APP.ver} iniciado com sucesso!`);
-    sendToast(`🚀 KhanDestroyer v${APP.ver} iniciado!`, 3000);
+    console.log(`Khanloudetes v${APP.ver} iniciado com sucesso!`);
+    sendToast(`🚀 Khanloudetes v${APP.ver} iniciado!`, 3000);
   } catch (error) {
-    console.error("Erro ao inicializar KhanDestroyer:", error);
-    sendToast("⚠️ Erro ao inicializar KhanDestroyer", 5000);
+    console.error("Erro ao inicializar Khanloudetes:", error);
+    sendToast("⚠️ Erro ao inicializar Khanloudetes", 5000);
   }
 }
 

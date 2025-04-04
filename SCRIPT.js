@@ -55,7 +55,7 @@ const playAudio = src => {
 class UI {
   static init() {
     const _0x3d849d = document.createElement("div");
-    _0x3d849d.id = "khanDestroyer-panel";
+    _0x3d849d.id = "Loudetes-panel";
     Object.assign(_0x3d849d.style, {
       position: "fixed",
       top: "10px",

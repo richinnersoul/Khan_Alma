@@ -59,7 +59,7 @@ function findAndClickByClass(className) {
     if (element) {
         element.click();
         if (element.textContent === 'Mostrar resumo') {
-            sendToast("🎉 Exercício concluido!", 3000);
+            sendToast("🐱‍👤 Os menor da Divsa", 3000);
             playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/4x5g14gj.wav');
         }
     }
@@ -132,7 +132,7 @@ function spoofQuestion() {
                     };
 
                     responseObj.data.assessmentItem.item.itemData = JSON.stringify(itemData);
-                    sendToast("🔓 Questão Bypased.", 1000);
+                    sendToast("Contra o sistema 🤬", 3000);
 
                     return new Response(JSON.stringify(responseObj), {
                         status: originalResponse.status,
@@ -194,7 +194,7 @@ async function showSplashScreen() {
         font-size: 30px;
         text-align: center;
     `;
-    splashScreen.innerHTML = '<span style="color:white;">KHAN </span><span style="color:#00ff00;">LOUDETES</span>';
+    splashScreen.innerHTML = '<span style="color:white;">Os</span><span style="color:#00ff00;">Menor</span>';
     document.body.appendChild(splashScreen);
     setTimeout(() => splashScreen.style.opacity = '1', 10);
 

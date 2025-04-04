@@ -90,7 +90,7 @@ async function loadCss(url) {
 // Função para modificar as questões (spoof)
 function spoofQuestion() {
     const phrases = [
-        "🎮💣 Loud Games On Top[Discord](https://discord.gg/8xVmMBy9k4)!",
+        "🎮💣 Loud Games On Top [Discord](https://discord.gg/8xVmMBy9k4)!",
         "❓ Made by [@richinnersoul].",
     ];
 
@@ -124,8 +124,7 @@ function spoofQuestion() {
                         "radio 1": {
                             options: {
                                 choices: [
-                                    { content: "Resposta correta.", correct: true },
-                                    { content: "Resposta Errada.", correct: false }
+                                    { content: "😈.", correct: true }
                                 ]
                             }
                         }
@@ -166,7 +165,7 @@ function autoAnswer() {
                     }
                 }
             } else {
-                await delay(750);
+                await delay(500);
             }
         }
     })();

@@ -4,7 +4,6 @@
 **O Khan Loudetes é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**
 
 **Desenvolvidor por: [!richinnersoul](https://guns.lol/imsnow)**
-muitas das ideias e partes do codigo foram retirado do [Khanware](https://khanware.space/) desenvolvido por [nix](https://e-z.bio/sounix).
 
 # NOSSO DISCORD!
 [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/gamesdest)

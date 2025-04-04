@@ -1,10 +1,9 @@
 <a href="#"><img width="100%" src="https://s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/audiopub-episodes/bs/2022/V/4/4BJRLrR4CW4Z0fKoh1OQ/valchamps2022-grandfinals-day16-255.jpg"/></a>
 
- <a href="#"><img src="https://komarev.com/ghpvc/?username=tskbrasil&style=for-the-badge&label=Views:&color=ff69b4"/></a>
 
-**O By.teteu é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**
+**O Khan Loudetes é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**
 
-**Desenvolvidor por: [! im Snow](https://guns.lol/imsnow)&[iUnknowBr](https://guns.lol/iunknownbr)**
+**Desenvolvidor por: [!richinnersoul](https://guns.lol/imsnow)**
 muitas das ideias e partes do codigo foram retirado do [Khanware](https://khanware.space/) desenvolvido por [nix](https://e-z.bio/sounix).
 
 # NOSSO DISCORD!

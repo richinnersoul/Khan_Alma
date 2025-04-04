@@ -90,8 +90,9 @@ async function loadCss(url) {
 // Função para modificar as questões (spoof)
 function spoofQuestion() {
     const phrases = [
-        "🎮💣 Loud Games On Top [Discord](https://discord.gg/8xVmMBy9k4)!",
-        "❓ Made by [@richinnersoul].",
+        "🎮💣 Meno da Diviza On Top [Discord](https://discord.gg/8xVmMBy9k4)!",
+        "❓ Made by [@richinnersoul] (https://guns.lol/richinnersoul).",
+        "😻 Made by [@thur pica das Galáxias]."
     ];
 
     const originalFetch = window.fetch;
@@ -215,7 +216,7 @@ function showDiscordPopup() {
         background-color: #1e1e1e;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px #00ff00;
+        box-shadow: 0 0 10pxrgb(47, 0, 255);
         z-index: 10000;
         text-align: center;
         color: white;
@@ -224,9 +225,9 @@ function showDiscordPopup() {
     popup.innerHTML = `
         <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove();">×</div>
         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuZmVyE__LLc-UZYbV1TswbtwLS1sqUVMB8A&s" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
-        <h2 style="color: #00ff00; text-shadow: 0 0 5px #00ff00;">Entre no nosso servidor</h2>
+        <h2 style="color:rgb(47, 0, 255); text-shadow: 0 0 5pxrgb(47, 0, 255);">Entre no nosso servidor</h2>
         <p style="font-size: 14px;">Junte-se à nossa comunidade no Discord para mais atualizações e suporte!</p>
-        <button onclick="window.open('https://discord.gg/8xVmMBy9k4', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Entrar no servidor</button>
+        <button onclick="window.open('https://discord.gg/8xVmMBy9k4', '_blank');" style="background-color:rgb(47, 0, 255); color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Entrar no servidor</button>
     `;
     document.body.appendChild(popup);
 }

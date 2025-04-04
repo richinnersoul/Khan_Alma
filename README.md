@@ -3,7 +3,7 @@
 
 **O Khan Loudetes é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**
 
-**Desenvolvidor por: [!richinnersoul](https://guns.lol/imsnow)**
+**Desenvolvidor por: [! richinnersoul](https://guns.lol/richinnersoul)**
 
 # NOSSO DISCORD!
 [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8xVmMBy9k4)

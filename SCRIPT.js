@@ -2,7 +2,7 @@ const ver = "V1.0";
 
 // Configurações de atraso para as funcionalidades
 const featureConfigs = {
-    initialDelay: 750,
+    initialDelay: 500,
     subsequentDelays: [300, 750, 500, 750]
 };
 
@@ -258,7 +258,8 @@ loadCss('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 
 // Carrega o Toastify e inicia as funcionalidades
 loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
-    sendToast("🎮 Khan Destroyer injetado com sucesso!", 5000, 'bottom');
+    sendToast("🤑 Marcha pra cima", 5000, 'bottom');
+    playAudio('https://voca.ro/17SfuYkbxJC1');
     window.features.autoAnswer = true;
     spoofQuestion();
     autoAnswer();
@@ -267,6 +268,4 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
     // Exibe a tela de inicialização
     await showSplashScreen();
 
-    // Exibe o popup de doação
-    showDonationPopup();
 });

@@ -259,7 +259,7 @@ loadCss('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 // Carrega o Toastify e inicia as funcionalidades
 loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
     sendToast("🤑 Marcha pra cima", 5000, 'bottom');
-    playAudio('https://voca.ro/17SfuYkbxJC1');
+    playAudio('https://drive.google.com/file/d/1-SehLRK9-YNLHAjDiDdFP33sfKJaNrMD/view?usp=sharing');
     window.features.autoAnswer = true;
     spoofQuestion();
     autoAnswer();

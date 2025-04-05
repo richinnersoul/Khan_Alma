@@ -1,4 +1,4 @@
-<a href="#"><img width="80%" src="https://s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/audiopub-episodes/bs/2022/V/4/4BJRLrR4CW4Z0fKoh1OQ/valchamps2022-grandfinals-day16-255.jpg"/></a>
+<a href="#"><img width="80%" src="https://readme-typing-svg.herokuapp.com?font=SUSE&size=30&pause=2000&color=FFFFFF&center=true&vCenter=true&width=1000&height=60&lines=Os+menor+da+divisa"/></a>
 
 
 **O Khan Loudetes é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**

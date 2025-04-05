@@ -3,7 +3,7 @@
 
 **Ferramenta desenvolvida para resolver seus problemas com o Khan Lixo!!**
 
-**Desenvolvidor por: [! richinnersoul](https://guns.lol/richinnersoul)**
+**Desenvolvidor por: [! richinnersoul](https://guns.lol/richinnersoul)** 🇮🇱
 
 # NOSSO DISCORD!
 [![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/8xVmMBy9k4)

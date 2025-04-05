@@ -2,8 +2,8 @@ const ver = "V1.0";
 
 // Configurações de atraso para as funcionalidades
 const featureConfigs = {
-    initialDelay: 500,
-    subsequentDelays: [500, 750, 500, 750]
+    initialDelay: 1500,
+    subsequentDelays: [500, 1000, 500, 1500]
 };
 
 // Configurações das funcionalidades

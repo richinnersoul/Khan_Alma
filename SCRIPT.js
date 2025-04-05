@@ -91,7 +91,7 @@ async function loadCss(url) {
 function spoofQuestion() {
     const phrases = [
         " [⚡Os Menor da Diviza On Top](https://discord.gg/8xVmMBy9k4)!",
-        "🐱‍👤  [@richinnersoul](https://guns.lol/richinnersoul).",
+        " 🐱‍👤 [@richinnersoul](https://guns.lol/richinnersoul).",
     ];
 
     const originalFetch = window.fetch;

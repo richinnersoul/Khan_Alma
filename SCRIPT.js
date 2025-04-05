@@ -2,8 +2,8 @@ const ver = "V1.0";
 
 // Configurações de atraso para as funcionalidades
 const featureConfigs = {
-    initialDelay: 1500,
-    subsequentDelays: [500, 1000, 500, 1500]
+    initialDelay:3000,
+    subsequentDelays: [500, 1500, 500, 2000]
 };
 
 // Configurações das funcionalidades
@@ -91,7 +91,7 @@ async function loadCss(url) {
 function spoofQuestion() {
     const phrases = [
         "🎮💣 Meno da Diviza On Top [Discord](https://discord.gg/8xVmMBy9k4)!",
-        "❓ Made by [@richinnersoul] (https://guns.lol/richinnersoul).",
+        "❓ Made by [@richinnersoul](https://guns.lol/richinnersoul).",
         "😻 Made by [@thur pica das Galáxias]."
     ];
 
@@ -166,7 +166,7 @@ function autoAnswer() {
                     }
                 }
             } else {
-                await delay(750);
+                await delay(1000);
             }
         }
     })();

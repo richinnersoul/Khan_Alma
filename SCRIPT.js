@@ -293,5 +293,8 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
     // Exibe a tela de inicialização
     await showSplashScreen();
     showDonationPopup();
-
+    
+    
+    // Exibe o popup de doação
+    showDonationPopup();
 });

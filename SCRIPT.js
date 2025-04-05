@@ -215,7 +215,7 @@ function showDonationPopup() {
         background-color: #1e1e1e;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10pxrgb(47, 0, 255);
+        box-shadow: 0 0 10px #00ff00;
         z-index: 10000;
         text-align: center;
         color: white;
@@ -224,8 +224,9 @@ function showDonationPopup() {
     popup.innerHTML = `
         <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove(); showDiscordPopup();">×</div>
         <img src="https://imgur.com/vkm3wZf.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
-        <h2 style="color:rgb(47, 0, 255); text-shadow: 0 0 5pxrgb(47, 0, 255);">Bem Vindo!</h2>
+        <h2 style="color: #00ff00; text-shadow: 0 0 5px #00ff00;">Bem Vindo!</h2>
         <p style="font-size: 14px;">Os meno da divisa 👻</p>
+        <button onclick="window.open('https://pixgg.com/im_snow', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Doar</button>
     `;
     document.body.appendChild(popup);
 }

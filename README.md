@@ -43,7 +43,6 @@ Programa privado!
 
 
 
-<a href="#"><img width="100%" src="https://pt.quizur.com/_image?href=https%3A%2F%2Fimg.quizur.com%2Ff%2Fimg611c6a107e57c2.15121434.png%3FlastEdited%3D1629252119%3Fo%3Dfeed&w=250&h=300&f=webp"/></a>
 <a href="#"><img width="100%" src="https://midias.jb.com.br/_midias/jpg/2023/07/21/bolsonaro_polemiza_em_ato_em_goiania_2059541_1024x576-759088.jpg"/></a>
 
 

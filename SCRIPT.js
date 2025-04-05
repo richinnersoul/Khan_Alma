@@ -166,7 +166,7 @@ function autoAnswer() {
                     }
                 }
             } else {
-                await delay(1000);
+                await delay(750);
             }
         }
     })();

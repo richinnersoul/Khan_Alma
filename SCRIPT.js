@@ -204,8 +204,8 @@ async function showSplashScreen() {
     splashScreen.remove();
 }
 
-// Função para exibir o popup do Discord
-function showDiscordPopup() {
+// Função para exibir o popup de doação
+function showDonationPopup() {
     const popup = document.createElement('div');
     popup.style.cssText = `
         position: fixed;
@@ -215,18 +215,17 @@ function showDiscordPopup() {
         background-color: #1e1e1e;
         padding: 20px;
         border-radius: 10px;
-        box-shadow: 0 0 10px #00ff00;
+        box-shadow: 0 0 10pxrgb(47, 0, 255);
         z-index: 10000;
         text-align: center;
         color: white;
         font-family: Arial, sans-serif;
     `;
     popup.innerHTML = `
-        <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove();">×</div>
-        <img src="https://i.imgur.com/t4mfuJU.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
-        <h2 style="color: #00ff00; text-shadow: 0 0 5px #00ff00;">Entre no nosso servidor</h2>
-        <p style="font-size: 14px;">Junte-se à nossa comunidade no Discord para mais atualizações e suporte!</p>
-        <button onclick="window.open('https://discord.gg/gamesdest', '_blank');" style="background-color: #00ff00; color: black; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px;">Entrar no servidor</button>
+        <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove(); showDiscordPopup();">×</div>
+        <img src="https://imgur.com/vkm3wZf.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
+        <h2 style="color:rgb(47, 0, 255); text-shadow: 0 0 5pxrgb(47, 0, 255);">Bem Vindo!</h2>
+        <p style="font-size: 14px;">Os meno da divisa 👻</p>
     `;
     document.body.appendChild(popup);
 }
@@ -293,5 +292,6 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
 
     // Exibe a tela de inicialização
     await showSplashScreen();
+    showDonationPopup();
 
 });

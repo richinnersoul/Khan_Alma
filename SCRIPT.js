@@ -266,6 +266,7 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
     console.clear();
 
     // Exibe a tela de inicialização
-    await showSplashScreen();
+  await showSplashScreen();
+  
 
 });

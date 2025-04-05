@@ -3,7 +3,7 @@ const ver = "V1.0";
 // Configurações de atraso para as funcionalidades
 const featureConfigs = {
     initialDelay: 500,
-    subsequentDelays: [300, 750, 500, 750]
+    subsequentDelays: [500, 750, 500, 750]
 };
 
 // Configurações das funcionalidades
@@ -166,7 +166,7 @@ function autoAnswer() {
                     }
                 }
             } else {
-                await delay(500);
+                await delay(750);
             }
         }
     })();

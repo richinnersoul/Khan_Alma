@@ -4,7 +4,7 @@
 **Ferramenta desenvolvida para resolver seus problemas com o Khan Lixo!!**
 
 **Desenvolvidor por: [! richinnersoul](https://guns.lol/richinnersoul)**
-<a href="#"><img width="5%" src="https://codepen.io/rafael-ai/full/yLGEXZL"/></a>
+<a href="#"><img width="25%" src="https://codepen.io/rafael-ai/full/yLGEXZL"/></a>
 
 
 # NOSSO DISCORD!

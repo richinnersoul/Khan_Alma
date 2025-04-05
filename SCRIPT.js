@@ -204,6 +204,31 @@ async function showSplashScreen() {
     splashScreen.remove();
 }
 
+// Função para exibir o popup de doação
+function showDonationPopup() {
+    const popup = document.createElement('div');
+    popup.style.cssText = `
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #1e1e1e;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10pxrgb(47, 0, 255);
+        z-index: 10000;
+        text-align: center;
+        color: white;
+        font-family: Arial, sans-serif;
+    `;
+    popup.innerHTML = `
+        <div style="position: absolute; top: 10px; right: 10px; cursor: pointer; color: red; font-size: 20px;" onclick="this.parentElement.remove(); showDiscordPopup();">×</div>
+        <img src="https://imgur.com/vkm3wZf.png" alt="Logo" style="width: 100px; height: 100px; margin-bottom: 10px;">
+        <h2 style="color:rgb(47, 0, 255); text-shadow: 0 0 5pxrgb(47, 0, 255);">Bem Vindo!</h2>
+        <p style="font-size: 14px;">Os meno da divisa 👻</p>
+    `;
+    document.body.appendChild(popup);
+}
 
 // Função para exibir o popup do Discord
 function showDiscordPopup() {
@@ -234,7 +259,7 @@ function showDiscordPopup() {
 
 // Verifica se o script está sendo executado no site correto
 if (!/^https?:\/\/pt\.khanacademy\.org/.test(window.location.href)) {
-    alert("❌ Khan Destroyer Failed to Injected!\n\nVocê precisa executar o Khan Destroyer no site do Khan Academy! (https://pt.khanacademy.org/)");
+    alert("❌ Khan Destroyer Failed to Injected!\n\nVocê precisa executar o site do Khan Academy! (https://pt.khanacademy.org/)");
     window.location.href = "https://pt.khanacademy.org/";
 }
 

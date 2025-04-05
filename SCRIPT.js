@@ -295,6 +295,4 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
     showDonationPopup();
     
     
-    // Exibe o popup de doação
-    showDonationPopup();
 });

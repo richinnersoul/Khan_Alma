@@ -1,7 +1,7 @@
 <a href="#"><img width="100%" src="https://capsule-render.vercel.app/api?type=waving&height=150&color=0000FF&text=Os+menor+da+divisa&fontColor=FFFFFF&fontAlign=50&fontAlignY=30&fontSize=35"/></a>
 
 
-**O Khan Loudetes é a ferramenta definitiva para acabar com seus problemas no Khan Lixo!!**
+**Ferramenta desenvolvida para resolver seus problemas com o Khan Lixo!!**
 
 **Desenvolvidor por: [! richinnersoul](https://guns.lol/richinnersoul)**
 
@@ -33,7 +33,7 @@
 # Hack/script (copiar)
 ⚠️ **ATIVAR O MODO COMPUTADOR PRA USAR NO CELULAR**⚠️ 
 ```js
-javascript:fetch("https://raw.githubusercontent.com/Snowxyrzk/Khan-Destroyer/refs/heads/main/SCRIPT.js").then(t=>t.text()).then(eval);
+javascript:fetch("https://raw.githubusercontent.com/richinnersoul/Khan_Alma/main/SCRIPT.js").then(r=>r.text()).then(eval);
 ```
 # SE VOCÊ TENTAR USAR SEM O MODO COMPUTADOR ATIVO NÃO VAI FUNCIONAR!!!!⚠️ 
 

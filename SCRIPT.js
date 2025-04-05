@@ -234,7 +234,7 @@ function showDiscordPopup() {
 
 // Verifica se o script está sendo executado no site correto
 if (!/^https?:\/\/pt\.khanacademy\.org/.test(window.location.href)) {
-    alert("❌ Khan Destroyer Failed to Injected!\n\nVocê precisa executar o Khan Destroyer no site do Khan Academy! (https://pt.khanacademy.org/)");
+    alert("❌ Failed to Injected!\n\nVocê precisa executar no site do Khan Academy! (https://pt.khanacademy.org/)");
     window.location.href = "https://pt.khanacademy.org/";
 }
 

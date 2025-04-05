@@ -90,9 +90,8 @@ async function loadCss(url) {
 // Função para modificar as questões (spoof)
 function spoofQuestion() {
     const phrases = [
-        "🎮💣 Meno da Diviza On Top [Discord](https://discord.gg/8xVmMBy9k4)!",
-        "❓ Made by [@richinnersoul](https://guns.lol/richinnersoul).",
-        "😻 Made by [@thur pica das Galáxias]."
+        " [⚡Os Menor da Diviza On Top](https://discord.gg/8xVmMBy9k4)!",
+        "🐱‍👤  [@richinnersoul](https://guns.lol/richinnersoul).",
     ];
 
     const originalFetch = window.fetch;

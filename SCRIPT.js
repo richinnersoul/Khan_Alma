@@ -258,18 +258,8 @@ loadCss('https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css');
 
 // Carrega o Toastify e inicia as funcionalidades
 loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
-    sendToast('<img src="https://exemplo.com/minha-imagem.png" width="50"> 🚀 Marcha pra cima', 5000, 'bottom');
+    sendToast('<img src="https://imgur.com/vkm3wZf.png" width="50"> "🤑 Marcha pra cima", 5000, 'bottom');
     playAudio('https://r2.e-z.host/4d0a0bea-60f8-44d6-9e74-3032a64a9f32/4x5g14gj.wav');
-    
-    // Exibe uma imagem na tela
-    let img = document.createElement("img");
-    img.src = "https://imgur.com/vkm3wZf.png";
-    img.style.position = "fixed";
-    img.style.top = "10px";
-    img.style.right = "10px";
-    img.style.width = "150px";
-    document.body.appendChild(img);
-
     window.features.autoAnswer = true;
     spoofQuestion();
     autoAnswer();
@@ -277,5 +267,5 @@ loadScript('https://cdn.jsdelivr.net/npm/toastify-js').then(async () => {
 
     // Exibe a tela de inicialização
     await showSplashScreen();
-});
 
+});

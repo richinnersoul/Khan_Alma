@@ -40,7 +40,7 @@ javascript:fetch("https://raw.githubusercontent.com/richinnersoul/Khan_Alma/main
 
 # Direitos autorais (C) 2025 Teteu
 
-Programa privado!
+**Programa privado!**
 
 
 

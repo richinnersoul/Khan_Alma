@@ -176,16 +176,29 @@ function autoAnswer() {
             return false;
         }
 
-        // ---- Clicar no DIV "Próxima pergunta" ----
-        function clickNextQuestionDiv() {
-            const div = [...document.querySelectorAll("div._1yok8f4")]
-                .find(el =>
-                    el.textContent.trim().toLowerCase().includes("próxima pergunta")
-                );
+        // ---- Clicar no "Próxima pergunta" (versão robusta + com espera) ----
+        async function clickNextQuestionDiv() {
 
-            if (div) {
-                div.click();
-                return true;
+            for (let i = 0; i < 20; i++) { // tenta por até 2 segundos
+
+                const elements = document.querySelectorAll("button, [role='button'], [data-testid]");
+
+                const btn = [...elements].find(el => {
+                    const txt = el.textContent.trim().toLowerCase();
+                    return (
+                        txt.includes("próxima pergunta") ||
+                        txt.includes("próxima questão") ||
+                        txt.includes("continuar") ||
+                        txt.includes("próximo")
+                    );
+                });
+
+                if (btn && !btn.disabled) {
+                    btn.click();
+                    return true;
+                }
+
+                await delay(100);
             }
             return false;
         }
@@ -217,7 +230,7 @@ function autoAnswer() {
                     await delay(500);
 
                     // clicar no "Próxima pergunta"
-                    clickNextQuestionDiv();
+                    await clickNextQuestionDiv();
                 }
 
             } else {
@@ -229,28 +242,7 @@ function autoAnswer() {
     })();
 }
 
-async function clickNextQuestionDiv() {
-    for (let i = 0; i < 20; i++) {
-        const btn = [...document.querySelectorAll("button, [role='button'], [data-testid]")]
-            .find(el => {
-                const txt = el.textContent.trim().toLowerCase();
-                return (
-                    txt.includes("próxima pergunta") ||
-                    txt.includes("próxima questão") ||
-                    txt.includes("continuar") ||
-                    txt.includes("próximo")
-                );
-            });
 
-        if (btn && !btn.disabled) {
-            btn.click();
-            return true;
-        }
-
-        await delay(100);
-    }
-    return false;
-}
 
 
 

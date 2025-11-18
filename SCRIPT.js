@@ -176,22 +176,10 @@ function autoAnswer() {
             return false;
         }
 
-        // ---- Clicar no "Próxima pergunta" (versão robusta + com espera) ----
+        // ---- Clicar no botão "Próxima pergunta" (selector exato) ----
         async function clickNextQuestionDiv() {
-
-            for (let i = 0; i < 20; i++) { // tenta por até 2 segundos
-
-                const elements = document.querySelectorAll("button, [role='button'], [data-testid]");
-
-                const btn = [...elements].find(el => {
-                    const txt = el.textContent.trim().toLowerCase();
-                    return (
-                        txt.includes("próxima pergunta") ||
-                        txt.includes("próxima questão") ||
-                        txt.includes("continuar") ||
-                        txt.includes("próximo")
-                    );
-                });
+            for (let i = 0; i < 20; i++) {   // tenta por até 2 segundos
+                const btn = document.querySelector('button[data-testid="exercise-next-question"]');
 
                 if (btn && !btn.disabled) {
                     btn.click();
@@ -203,7 +191,7 @@ function autoAnswer() {
             return false;
         }
 
-        // ---- Loop principal mantendo sua estrutura ----
+        // ---- Loop principal ----
         while (true) {
 
             if (window.features.autoAnswer && window.features.questionSpoof) {
@@ -223,7 +211,7 @@ function autoAnswer() {
 
                     await delay(nextDelay);
 
-                    // clicar no botão "Verificar" / "Próximo"
+                    // clicar no "Verificar" / "Próximo"
                     clickCheckOrNext();
 
                     // aguardar a troca de tela
@@ -241,6 +229,9 @@ function autoAnswer() {
 
     })();
 }
+``
+
+
 
 
 

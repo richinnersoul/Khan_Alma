@@ -151,7 +151,7 @@ function spoofQuestion() {
 // Função para responder automaticamente às questões
 function autoAnswer() {
     (async () => {
-        const baseClasses = ["perseus_C4cWo-dY", "perseus_irgRpkgB"];
+        const baseClasses = ["perseus_C4cWo-dY", "perseus_irgRpkgB", "_ry7r99o", "_lvas5s6"];
 
         while (true) {
             if (window.features.autoAnswer && window.features.questionSpoof) {

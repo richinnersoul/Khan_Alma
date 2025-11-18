@@ -148,6 +148,18 @@ function spoofQuestion() {
     };
 }
 
+
+
+
+
+
+
+
+
+
+
+ooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+
 // Função delay
 function delay(ms) {
     return new Promise(res => setTimeout(res, ms));
@@ -237,6 +249,24 @@ function autoAnswer() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
 
 // Função para exibir a tela de inicialização
 async function showSplashScreen() {

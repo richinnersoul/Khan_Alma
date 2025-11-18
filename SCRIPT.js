@@ -229,22 +229,26 @@ function autoAnswer() {
     })();
 }
 
-function clickNextQuestionDiv() {
-    const elements = document.querySelectorAll("*");
+async function clickNextQuestionDiv() {
+    for (let i = 0; i < 20; i++) {
+        const btn = [...document.querySelectorAll("button, [role='button'], [data-testid]")]
+            .find(el => {
+                const txt = el.textContent.trim().toLowerCase();
+                return (
+                    txt.includes("próxima pergunta") ||
+                    txt.includes("próxima questão") ||
+                    txt.includes("continuar") ||
+                    txt.includes("próximo")
+                );
+            });
 
-    for (const el of elements) {
-        const text = el.textContent.trim().toLowerCase();
-
-        if (text.includes("próxima pergunta")) {
-            // Verifica se está clicável e visível
-            const style = window.getComputedStyle(el);
-            if (style.display !== "none" && style.visibility !== "hidden" && el.offsetParent !== null) {
-                el.click();
-                return true;
-            }
+        if (btn && !btn.disabled) {
+            btn.click();
+            return true;
         }
-    }
 
+        await delay(100);
+    }
     return false;
 }
 

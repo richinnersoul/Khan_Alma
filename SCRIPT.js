@@ -176,18 +176,39 @@ function autoAnswer() {
             return false;
         }
 
-        // ---- Clicar no botão "Próxima pergunta" (selector exato) ----
-        async function clickNextQuestionDiv() {
-            for (let i = 0; i < 20; i++) {   // tenta por até 2 segundos
-                const btn = document.querySelector('button[data-testid="exercise-next-question"]');
+        // ---- Clicar no botão "Próxima pergunta" OU equivalentes ----
+        async function clickNextQuestion() {
+            for (let i = 0; i < 40; i++) {  // tenta por até 4 segundos
+
+                // ----------- BOTÃO PRINCIPAL -----------
+                let btn = document.querySelector('button[data-testid="exercise-next-question"]');
+                if (btn && !btn.disabled) {
+                    btn.click();
+                    return true;
+                }
+
+                // ----------- BOTÕES ALTERNATIVOS -----------
+                const allButtons = [...document.querySelectorAll("button, [role='button'], [data-testid]")];
+
+                btn = allButtons.find(el => {
+                    const txt = el.textContent.trim().toLowerCase();
+                    return (
+                        (txt.includes("continuar")) ||
+                        (txt.includes("próximo")) ||
+                        (txt.includes("próxima")) ||
+                        (txt.includes("tentar novamente")) ||
+                        (txt.includes("refazer"))
+                    );
+                });
 
                 if (btn && !btn.disabled) {
                     btn.click();
                     return true;
                 }
 
-                await delay(100);
+                await delay(100); // aguarda aparecer
             }
+
             return false;
         }
 
@@ -204,21 +225,21 @@ function autoAnswer() {
 
                 if (answered) {
 
-                    // delay entre clicar na resposta e no botão "Verificar"
+                    // delay aleatório entre resposta e verificar
                     const nextDelay = featureConfigs.subsequentDelays[
                         Math.floor(Math.random() * featureConfigs.subsequentDelays.length)
                     ];
 
                     await delay(nextDelay);
 
-                    // clicar no "Verificar" / "Próximo"
+                    // clicar no "Verificar"
                     clickCheckOrNext();
 
-                    // aguardar a troca de tela
-                    await delay(500);
+                    // aguardar carregar
+                    await delay(300);
 
-                    // clicar no "Próxima pergunta"
-                    await clickNextQuestionDiv();
+                    // clicar em "Próxima pergunta" (ou equivalente)
+                    await clickNextQuestion();
                 }
 
             } else {

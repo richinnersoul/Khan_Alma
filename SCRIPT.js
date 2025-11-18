@@ -151,25 +151,65 @@ function spoofQuestion() {
 // Função para responder automaticamente às questões
 function autoAnswer() {
     (async () => {
-        const baseClasses = ["perseus_C4cWo-dY", "perseus_irgRpkgB", "_ry7r99o", "_lvas5s6"];
 
+        // ---- Clicar na alternativa (A, B, C ou D) ----
+        function clickAnswer() {
+            const buttons = document.querySelectorAll('button[aria-label^="(Escolha"]');
+
+            for (const btn of buttons) {
+                if (btn.getAttribute("aria-pressed") === "false") {
+                    btn.click();
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // ---- Clicar no botão Verificar / Próximo ----
+        function clickNext() {
+            const btn = document.querySelector('button[data-testid="exercise-check-answer"]');
+
+            // O botão só clica quando aria-disabled = false
+            if (btn && btn.getAttribute("aria-disabled") === "false") {
+                btn.click();
+                return true;
+            }
+            return false;
+        }
+
+        // ---- Loop principal mantendo EXACTAMENTE sua estrutura ----
         while (true) {
+
             if (window.features.autoAnswer && window.features.questionSpoof) {
+
+                // delay inicial do config
                 await delay(featureConfigs.initialDelay);
 
-                for (let i = 0; i < baseClasses.length; i++) {
-                    const clicked = findAndClickByClass(baseClasses[i]);
-                    if (clicked && i < baseClasses.length - 1) {
-                        const nextDelay = featureConfigs.subsequentDelays[i % featureConfigs.subsequentDelays.length];
-                        await delay(nextDelay);
-                    }
+                // clicar na alternativa
+                const answered = clickAnswer();
+
+                if (answered) {
+
+                    // delay entre a resposta e o botão verificar/próximo
+                    const nextDelay = featureConfigs.subsequentDelays[
+                        Math.floor(Math.random() * featureConfigs.subsequentDelays.length)
+                    ];
+
+                    await delay(nextDelay);
+
+                    // clicar no botão "Verificar" / "Próximo"
+                    clickNext();
                 }
+
             } else {
+                // modo idle
                 await delay(750);
             }
         }
+
     })();
 }
+
 
 // Função para exibir a tela de inicialização
 async function showSplashScreen() {

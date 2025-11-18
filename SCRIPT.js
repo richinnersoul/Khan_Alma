@@ -229,6 +229,25 @@ function autoAnswer() {
     })();
 }
 
+function clickNextQuestionDiv() {
+    const elements = document.querySelectorAll("*");
+
+    for (const el of elements) {
+        const text = el.textContent.trim().toLowerCase();
+
+        if (text.includes("próxima pergunta")) {
+            // Verifica se está clicável e visível
+            const style = window.getComputedStyle(el);
+            if (style.display !== "none" && style.visibility !== "hidden" && el.offsetParent !== null) {
+                el.click();
+                return true;
+            }
+        }
+    }
+
+    return false;
+}
+
 
 
 // Função para exibir a tela de inicialização

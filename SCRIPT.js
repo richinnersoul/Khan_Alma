@@ -148,253 +148,93 @@ function spoofQuestion() {
     };
 }
 
-// Função para responder automaticamente às questões (versão diagnóstica e robusta)
+// Função delay
+function delay(ms) {
+    return new Promise(res => setTimeout(res, ms));
+}
+
 function autoAnswer() {
     (async () => {
 
-        // helper delay (define caso não exista)
-        function delay(ms) {
-            return new Promise(resolve => setTimeout(resolve, ms));
-        }
-
-        // helper para clicar com múltiplas estratégias
-        function clickElement(el) {
-            if (!el) return false;
-            try {
-                // tentativa padrão
-                el.click();
-                return true;
-            } catch (e) {
-                // fallback: disparar eventos de mouse
-                try {
-                    const evOpts = { bubbles: true, cancelable: true, view: window };
-                    el.dispatchEvent(new MouseEvent('mousedown', evOpts));
-                    el.dispatchEvent(new MouseEvent('mouseup', evOpts));
-                    el.dispatchEvent(new MouseEvent('click', evOpts));
-                    return true;
-                } catch (err) {
-                    console.warn("clickElement: falha ao dispatch events:", err);
-                    return false;
-                }
-            }
-        }
-
-        // ---- Clicar na alternativa (A, B, C ou D) ----
+        // ----------- CLICAR NA ALTERNATIVA -----------
         function clickAnswer() {
-            try {
-                const buttons = document.querySelectorAll('button[aria-label^="(Escolha"], button[role="button"][aria-pressed], button[data-choice-id], [data-choice]');
+            const buttons = document.querySelectorAll('button[aria-label^="(Escolha"]');
 
-                for (const btn of buttons) {
-                    const pressed = btn.getAttribute("aria-pressed");
-                    // aceita both "false" string or absence (clicável)
-                    if (pressed === "false" || pressed === null || pressed === undefined) {
-                        console.log("clickAnswer: clicando alternativa:", btn);
-                        clickElement(btn);
-                        return true;
-                    }
+            for (const btn of buttons) {
+                if (btn.getAttribute("aria-pressed") === "false") {
+                    btn.click();
+                    return true;
                 }
-            } catch (e) {
-                console.error("clickAnswer erro:", e);
             }
             return false;
         }
 
-        // ---- Clicar no botão Verificar / Próximo ----
+        // ----------- CLICAR EM VERIFICAR / PRÓXIMO -----------
         function clickCheckOrNext() {
-            try {
-                // tenta seletor já conhecido
-                let btn = document.querySelector('button[data-testid="exercise-check-answer"]');
+            const btn = document.querySelector('button[data-testid="exercise-check-answer"]');
 
-                // fallback por texto (p.ex. "Verificar", "Check", "Submit")
-                if (!btn) {
-                    const candidates = [...document.querySelectorAll("button, [role='button']")];
-                    btn = candidates.find(el => {
-                        const txt = (el.textContent || "").trim().toLowerCase();
-                        return txt.includes("verificar") || txt.includes("check") || txt.includes("enviar") || txt.includes("submit");
-                    });
-                }
-
-                if (btn) {
-                    const ariaDisabled = btn.getAttribute("aria-disabled");
-                    const disabled = btn.disabled || ariaDisabled === "true" || ariaDisabled === "True";
-                    if (!disabled) {
-                        console.log("clickCheckOrNext: clicando em verificar:", btn);
-                        clickElement(btn);
-                        return true;
-                    } else {
-                        console.log("clickCheckOrNext: botão verificar desabilitado");
-                    }
-                } else {
-                    console.log("clickCheckOrNext: botão verificar não encontrado");
-                }
-
-            } catch (e) {
-                console.error("clickCheckOrNext erro:", e);
+            if (btn && btn.getAttribute("aria-disabled") === "false") {
+                btn.click();
+                return true;
             }
             return false;
         }
 
-        // ---- Procurar o botão "Próxima pergunta" com várias estratégias ----
-        function findNextButton() {
-            // seletor exato principal
-            let btn = document.querySelector('button[data-testid="exercise-next-question"]');
-            if (btn) return btn;
+        // ----------- CLICAR NA PRÓXIMA PERGUNTA -----------
+        function clickNextQuestion() {
 
-            // procurar por botão que contenha um child com texto "próxima pergunta"
-            const candidates = [...document.querySelectorAll("button, [role='button'], [data-testid]")];
-            btn = candidates.find(el => {
-                const txt = (el.textContent || "").trim().toLowerCase();
-                return (
-                    txt.includes("próxima pergunta") ||
-                    txt.includes("próxima questão") ||
-                    txt.includes("continuar") ||
-                    txt.includes("tentar novamente") ||
-                    txt.includes("refazer") ||
-                    (txt.includes("próximo") && !txt.includes("item do curso")) // heurística
-                );
-            });
-
-            if (btn) return btn;
-
-            // busca por um filho com texto específico (caso o texto esteja em um div interno)
-            const all = [...document.querySelectorAll("button")];
-            for (const b of all) {
-                const inner = b.querySelector("*");
-                if (inner && (inner.textContent || "").trim().toLowerCase().includes("próxima pergunta")) {
-                    return b;
-                }
-            }
-
-            return null;
-        }
-
-        // ---- Clicar no botão "Próxima pergunta" usando MutationObserver para aguardar aparecimento ----
-        async function clickNextQuestionRobust(timeoutMs = 6000) {
-            console.log("clickNextQuestionRobust: procurando botão imediatamente...");
-            // tentativa imediata
-            let btn = findNextButton();
-            if (btn && !btn.disabled) {
-                console.log("clickNextQuestionRobust: achou imediatamente:", btn);
-                clickElement(btn);
+            // 1️⃣ Tenta pegar o botão principal
+            const nextBtn = document.querySelector('button[data-testid="exercise-next-question"]');
+            if (nextBtn) {
+                nextBtn.click();
                 return true;
             }
 
-            // se não achou, observa mutações por até timeoutMs
-            return await new Promise(resolve => {
-                const start = Date.now();
-                let resolved = false;
+            // 2️⃣ Tenta pegar o DIV com o texto
+            const div = [...document.querySelectorAll("div._1yok8f4")]
+                .find(el => el.textContent.trim().toLowerCase().includes("próxima pergunta"));
 
-                const observer = new MutationObserver((mutations) => {
-                    if (resolved) return;
-                    const found = findNextButton();
-                    if (found && !found.disabled) {
-                        resolved = true;
-                        observer.disconnect();
-                        console.log("clickNextQuestionRobust: botão apareceu via MutationObserver:", found);
-                        clickElement(found);
-                        resolve(true);
-                    } else if (Date.now() - start > timeoutMs) {
-                        resolved = true;
-                        observer.disconnect();
-                        console.warn("clickNextQuestionRobust: timeout aguardando botão (", timeoutMs, "ms )");
-                        resolve(false);
-                    }
-                });
+            if (div) {
+                div.click();
+                return true;
+            }
 
-                // observa mudanças no body subtree (inserções/remocões)
-                observer.observe(document.body, { childList: true, subtree: true, characterData: true });
-
-                // fallback: polling corto enquanto observer espera (garante que se já apareceu será clicado)
-                (async function polling() {
-                    while (!resolved && Date.now() - start <= timeoutMs) {
-                        const found = findNextButton();
-                        if (found && !found.disabled) {
-                            resolved = true;
-                            observer.disconnect();
-                            console.log("clickNextQuestionRobust: botão apareceu via polling:", found);
-                            clickElement(found);
-                            resolve(true);
-                            return;
-                        }
-                        await delay(150);
-                    }
-                    if (!resolved) {
-                        resolved = true;
-                        observer.disconnect();
-                        console.warn("clickNextQuestionRobust: polling também expirou");
-                        resolve(false);
-                    }
-                })();
-            });
+            return false;
         }
 
-        // ---- Loop principal (mantive sua lógica, só acrescentei logs e robustez) ----
+        // ----------- LOOP PRINCIPAL -----------
         while (true) {
 
-            try {
-                if (window.features && window.features.autoAnswer && window.features.questionSpoof) {
+            if (window.features.autoAnswer && window.features.questionSpoof) {
 
-                    console.log("autoAnswer: ciclo iniciado");
+                await delay(featureConfigs.initialDelay);
 
-                    // delay inicial
-                    await delay((featureConfigs && featureConfigs.initialDelay) ? featureConfigs.initialDelay : 200);
+                const answered = clickAnswer();
 
-                    // clicar na alternativa
-                    const answered = clickAnswer();
+                if (answered) {
 
-                    if (answered) {
+                    const nextDelay = featureConfigs.subsequentDelays[
+                        Math.floor(Math.random() * featureConfigs.subsequentDelays.length)
+                    ];
 
-                        // delay entre clicar na resposta e no botão "Verificar"
-                        const subsequentDelays = (featureConfigs && featureConfigs.subsequentDelays) ? featureConfigs.subsequentDelays : [300, 400, 500];
-                        const nextDelay = subsequentDelays[Math.floor(Math.random() * subsequentDelays.length)];
+                    await delay(nextDelay);
 
-                        console.log("autoAnswer: aguardando", nextDelay, "ms antes de verificar");
-                        await delay(nextDelay);
+                    clickCheckOrNext();
 
-                        // clicar no botão "Verificar" / "Próximo"
-                        const clickedCheck = clickCheckOrNext();
-                        if (!clickedCheck) {
-                            console.log("autoAnswer: não conseguiu clicar em Verificar (pode estar desabilitado). Vou tentar novamente mais tarde.");
-                        }
+                    // Aguarda a tela mudar (mais tempo ajuda)
+                    await delay(1000);
 
-                        // aguardar a troca de tela / modal / animação — e procurar ativamente o botão "próxima"
-                        await delay(250); // breve pausa antes de começar a observar
-                        const ok = await clickNextQuestionRobust(6000); // espera até 6s
-                        console.log("autoAnswer: resultado tentativa nextQuestion:", ok);
-
-                        if (!ok) {
-                            // se não conseguiu achar/entrar, tenta clicar no "próximo" do canto superior/inferior (estratégia extra)
-                            console.log("autoAnswer: tentativa alternativa de encontrar 'Próximo' genérico...");
-                            const generic = [...document.querySelectorAll("button, [role='button']")]
-                                .find(el => ((el.textContent||"").trim().toLowerCase().includes("próximo") || (el.textContent||"").trim().toLowerCase().includes("continuar")));
-                            if (generic && !generic.disabled) {
-                                console.log("autoAnswer: clicando botão genérico:", generic);
-                                clickElement(generic);
-                                await delay(200);
-                            } else {
-                                console.warn("autoAnswer: nenhum botão genérico encontrado como fallback.");
-                            }
-                        }
-                    } else {
-                        // se não encontrou alternativa, esperar um pouco antes de tentar novamente
-                        console.log("autoAnswer: nenhuma alternativa clicada neste ciclo");
-                    }
-
-                } else {
-                    // modo ocioso
-                    await delay(750);
+                    // Tenta ir para a próxima
+                    clickNextQuestion();
                 }
-            } catch (err) {
-                console.error("autoAnswer: erro no loop principal:", err);
-                await delay(1000);
+
+            } else {
+                await delay(750);
             }
         }
 
     })();
 }
-
-
-
 
 
 

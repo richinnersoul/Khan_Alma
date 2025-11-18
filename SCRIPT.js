@@ -244,8 +244,6 @@ function autoAnswer() {
 
 
 
-
-
 // Função para exibir a tela de inicialização
 async function showSplashScreen() {
     const splashScreen = document.createElement('div');

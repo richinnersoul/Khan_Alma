@@ -152,7 +152,7 @@ function spoofQuestion() {
 function autoAnswer() {
     (async () => {
 
-        // ---- Clicar na alternativa (A, B, C ou D) ----
+        // ---- Clicar na alternativa ----
         function clickAnswer() {
             const buttons = document.querySelectorAll('button[aria-label^="(Escolha"]');
 
@@ -182,7 +182,9 @@ function autoAnswer() {
 
                 // ----------- BOTÃO PRINCIPAL -----------
                 let btn = document.querySelector('button[data-testid="exercise-next-question"]');
-                if (btn && !btn.disabled) {
+                if (btn && !btn.disabled)
+                    const baseClasses = ["_6t500vf", "_1yok8f4"] 
+                {
                     btn.click();
                     return true;
                 }

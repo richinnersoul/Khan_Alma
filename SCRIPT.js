@@ -166,10 +166,9 @@ function autoAnswer() {
         }
 
         // ---- Clicar no botão Verificar / Próximo ----
-        function clickNext() {
+        function clickCheckOrNext() {
             const btn = document.querySelector('button[data-testid="exercise-check-answer"]');
 
-            // O botão só clica quando aria-disabled = false
             if (btn && btn.getAttribute("aria-disabled") === "false") {
                 btn.click();
                 return true;
@@ -177,12 +176,26 @@ function autoAnswer() {
             return false;
         }
 
-        // ---- Loop principal mantendo EXACTAMENTE sua estrutura ----
+        // ---- Clicar no DIV "Próxima pergunta" ----
+        function clickNextQuestionDiv() {
+            const div = [...document.querySelectorAll("div._1yok8f4")]
+                .find(el =>
+                    el.textContent.trim().toLowerCase().includes("próxima pergunta")
+                );
+
+            if (div) {
+                div.click();
+                return true;
+            }
+            return false;
+        }
+
+        // ---- Loop principal mantendo sua estrutura ----
         while (true) {
 
             if (window.features.autoAnswer && window.features.questionSpoof) {
 
-                // delay inicial do config
+                // delay inicial
                 await delay(featureConfigs.initialDelay);
 
                 // clicar na alternativa
@@ -190,7 +203,7 @@ function autoAnswer() {
 
                 if (answered) {
 
-                    // delay entre a resposta e o botão verificar/próximo
+                    // delay entre clicar na resposta e no botão "Verificar"
                     const nextDelay = featureConfigs.subsequentDelays[
                         Math.floor(Math.random() * featureConfigs.subsequentDelays.length)
                     ];
@@ -198,17 +211,24 @@ function autoAnswer() {
                     await delay(nextDelay);
 
                     // clicar no botão "Verificar" / "Próximo"
-                    clickNext();
+                    clickCheckOrNext();
+
+                    // aguardar a troca de tela
+                    await delay(500);
+
+                    // clicar no "Próxima pergunta"
+                    clickNextQuestionDiv();
                 }
 
             } else {
-                // modo idle
+                // modo ocioso
                 await delay(750);
             }
         }
 
     })();
 }
+
 
 
 // Função para exibir a tela de inicialização
